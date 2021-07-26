@@ -1,0 +1,163 @@
+﻿@model ShopBHDT.Models.product
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detail</h2>
+
+<div>
+    <h4>product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.companyId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.companyId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.star)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.star)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rateCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rateCount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.stock)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.stock)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.screen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.screen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.os)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.os)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.camera)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.camera)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cameraFront)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cameraFront)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cpu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cpu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ram)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ram)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.chip)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.chip)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.battery)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.battery)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sim)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sim)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.image)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.categoryId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.categoryId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.productId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

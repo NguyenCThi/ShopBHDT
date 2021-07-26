@@ -1,0 +1,102 @@
+﻿@using ShopBHDT.Models
+@model List<product>
+@{
+    ViewBag.Title = "Vivo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+<link href="~/Content/Site.css" rel="stylesheet" />
+<script src="~/lib/font-awesome/js/all.js"></script>
+<img src="~/img/banners/blackFriday.gif" alt="" style="width: 100%;">
+<div class="companyMenu group flexContain">
+    <a href="@Url.Action("Iphone", "Home")"><img src="~/img/company/Apple.jpg"></a>
+    <a href="@Url.Action("Samsung", "Home")"><img src="~/img/company/Samsung.jpg"></a>
+    <a href="@Url.Action("Oppo", "Home")"><img src="~/img/company/Oppo.jpg"></a>
+    <a href="@Url.Action("Nokia", "Home")"><img src="~/img/company/Nokia.jpg"></a>
+    <a href="@Url.Action("Huawei", "Home")"><img src="~/img/company/Huawei.jpg"></a>
+    <a href="@Url.Action("Xiaomi", "Home")"><img src="~/img/company/Xiaomi.png"></a>
+    <a href="@Url.Action("Realme", "Home")"><img src="~/img/company/Realme.png"></a>
+    <a href="@Url.Action("Vivo", "Home")"><img src="~/img/company/Vivo.jpg"></a>
+    <a href="@Url.Action("Philips", "Home")"><img src="~/img/company/Philips.jpg"></a>
+    <a href="@Url.Action("Mobell", "Home")"><img src="~/img/company/Mobell.jpg"></a>
+    <a href="@Url.Action("Mobiistar", "Home")"><img src="~/img/company/Mobiistar.jpg"></a>
+    <a href="@Url.Action("Itel_Mobile", "Home")"><img src="~/img/company/Itel.jpg"></a>
+    <a href="@Url.Action("Coolpad", "Home")"><img src="~/img/company/Coolpad.png"></a>
+    <a href="@Url.Action("HTC", "Home")"><img src="~/img/company/HTC.jpg"></a>
+    <a href="@Url.Action("Motorola", "Home")"><img src="~/img/company/Motorola.jpg"></a>
+</div>
+<div class="flexContain">
+
+    <div class="pricesRangeFilter dropdown">
+        <button class="dropbtn">Giá tiền</button>
+        <div class="dropdown-content"></div>
+    </div>
+
+    <div class="promosFilter dropdown">
+        <button class="dropbtn">Khuyến mãi</button>
+        <div class="dropdown-content"></div>
+    </div>
+
+    <div class="starFilter dropdown">
+        <button class="dropbtn">Số lượng sao</button>
+        <div class="dropdown-content"></div>
+    </div>
+
+    <div class="sortFilter dropdown">
+        <button class="dropbtn">Sắp xếp</button>
+        <div class="dropdown-content"></div>
+    </div>
+</div>
+<hr />
+<div class="litSpTrongKhung flexContain">
+    @foreach (var item in Model)
+    {
+        <div class="sanPham">
+            <a href="">
+                <img src="@item.image" />
+                <h3>@item.name</h3>
+                <div class="price">
+                    <strong>@item.price</strong>
+                </div>
+                <div class="rate">
+                    @if (item.star == 0)
+                    {
+                        <i class="fa fa-star-half"></i>
+                    }
+                    @if (item.star == 1)
+                    {
+                        <i class="fa fa-star"></i>
+                    }
+                    @if (item.star == 2)
+                    {
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    }
+                    @if (item.star == 3)
+                    {
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    }
+                    @if (item.star == 4)
+                    {
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    }
+                    @if (item.star == 5)
+                    {
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    }
+                    <span>@item.rateCount</span>
+                </div>
+            </a>
+        </div>
+    }
+</div>

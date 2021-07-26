@@ -1,0 +1,384 @@
+﻿
+@using ShopBHDT.Models;
+@model dynamic
+@{
+    ViewBag.Title = "Home Page";
+}
+<script src="~/lib/font-awesome/js/all.js"></script>
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+<link href="~/Content/Site.css" rel="stylesheet" />
+<script src="~/lib/font-awesome/js/all.js"></script>
+<img src="~/img/banners/blackFriday.gif" alt="" style="width: 100%;">
+<div class="companyMenu group flexContain">
+    <a href="@Url.Action("Iphone", "Home")"><img src="~/img/company/Apple.jpg"></a>
+    <a href="@Url.Action("Samsung", "Home")"><img src="~/img/company/Samsung.jpg"></a>
+    <a href="@Url.Action("Oppo", "Home")"><img src="~/img/company/Oppo.jpg"></a>
+    <a href="@Url.Action("Nokia", "Home")"><img src="~/img/company/Nokia.jpg"></a>
+    <a href="@Url.Action("Huawei", "Home")"><img src="~/img/company/Huawei.jpg"></a>
+    <a href="@Url.Action("Xiaomi", "Home")"><img src="~/img/company/Xiaomi.png"></a>
+    <a href="@Url.Action("Realme", "Home")"><img src="~/img/company/Realme.png"></a>
+    <a href="@Url.Action("Vivo", "Home")"><img src="~/img/company/Vivo.jpg"></a>
+    <a href="@Url.Action("Philips", "Home")"><img src="~/img/company/Philips.jpg"></a>
+    <a href="@Url.Action("Mobell", "Home")"><img src="~/img/company/Mobell.jpg"></a>
+    <a href="@Url.Action("Mobiistar", "Home")"><img src="~/img/company/Mobiistar.jpg"></a>
+    <a href="@Url.Action("Itel_Mobile", "Home")"><img src="~/img/company/Itel.jpg"></a>
+    <a href="@Url.Action("Coolpad", "Home")"><img src="~/img/company/Coolpad.png"></a>
+    <a href="@Url.Action("HTC", "Home")"><img src="~/img/company/HTC.jpg"></a>
+    <a href="@Url.Action("Motorola", "Home")"><img src="~/img/company/Motorola.jpg"></a>
+</div>
+<div class="flexContain">
+
+    <div class="pricesRangeFilter dropdown">
+        <button class="dropbtn">Giá tiền</button>
+        <div class="dropdown-content"></div>
+    </div>
+
+    <div class="promosFilter dropdown">
+        <button class="dropbtn">Khuyến mãi</button>
+        <div class="dropdown-content"></div>
+    </div>
+
+    <div class="starFilter dropdown">
+        <button class="dropbtn">Số lượng sao</button>
+        <div class="dropdown-content"></div>
+    </div>
+
+    <div class="sortFilter dropdown">
+        <button class="dropbtn">Sắp xếp</button>
+        <div class="dropdown-content"></div>
+    </div>
+
+</div>
+<hr />
+<div class="contain-khungSanPham">
+
+    <div class="khungSanPham" style="border-color: #ff9c00">
+        <h3 class="tenKhung" style="background-image: linear-gradient(120deg, #ff9c00 0%, #ec1f1f 50%, #ff9c00 100%);">NỔI BẬT NHẤT</h3>
+        <div class="litSpTrongKhung flexContain">
+            @foreach (var trc in Model.top4Rate)
+            {
+                <div class="sanPham">
+                    <a href="@Url.Action("Detail", "Home",new { id=trc.productId })">
+                        <img src="@trc.image" />
+                        <h3>@trc.name</h3>
+                        <div class="price">
+                            <strong>@trc.price</strong>
+                        </div>
+                        <div class="rate">
+                            @if (trc.star == 0)
+                            {
+                                <i class="fa fa-star-half"></i>
+                            }
+                            @if (trc.star == 1)
+                            {
+                                <i class="fa fa-star"></i>
+                            }
+                            @if (trc.star == 2)
+                            {
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            }
+                            @if (trc.star == 3)
+                            {
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            }
+                            @if (trc.star == 4)
+                            {
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            }
+                            @if (trc.star == 5)
+                            {
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            }
+                            <span>@trc.rateCount</span>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+    <hr />
+    <div class="khungSanPham" style="border-color: #ff9c00">
+        <h3 class="tenKhung" style="background-image: linear-gradient(120deg, #ff9c00 0%, #ec1f1f 50%, #ff9c00 100%);">GIÁ RẺ CHO MỌI NHÀ</h3>
+        <div class="litSpTrongKhung flexContain">
+            @foreach (var tlp in Model.top4LowPrice)
+            {
+                <div class="sanPham">
+                    <a href="@Url.Action("Detail", "Home",new { id=tlp.productId })">
+                        <img src="@tlp.image" />
+                        <h3>@tlp.name</h3>
+                        <div class="price">
+                            <strong>@tlp.price</strong>
+                        </div>
+                        <div class="rate">
+                            @if (tlp.star == 0)
+                            {
+                                <i class="fa fa-star-half"></i>
+                            }
+                            @if (tlp.star == 1)
+                            {
+                                <i class="fa fa-star"></i>
+                            }
+                            @if (tlp.star == 2)
+                            {
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            }
+                            @if (tlp.star == 3)
+                            {
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            }
+                            @if (tlp.star == 4)
+                            {
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            }
+                            @if (tlp.star == 5)
+                            {
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            }
+                            <span>@tlp.rateCount</span>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+    <hr />
+    <div class="khungSanPham" style="border-color: #ff9c00">
+        <h3 class="tenKhung" style="background-image: linear-gradient(120deg, #ff9c00 0%, #ec1f1f 50%, #ff9c00 100%);">SẢN PHẨM MỚI</h3>
+        <div class="litSpTrongKhung flexContain">
+            @foreach (var spm in Model.SanPhamMoi)
+            {
+                <div class="sanPham">
+                    <a href="@Url.Action("Detail", "Home",new { id=spm.productId })">
+                        <img src="@spm.image" />
+                        <h3>@spm.name</h3>
+                        <div class="price">
+                            <strong>@spm.price</strong>
+                        </div>
+                        <div class="rate">
+                            @if (spm.star == 0)
+                            {
+                                <i class="fa fa-star-half"></i>
+                            }
+                            @if (spm.star == 1)
+                            {
+                                <i class="fa fa-star"></i>
+                            }
+                            @if (spm.star == 2)
+                            {
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            }
+                            @if (spm.star == 3)
+                            {
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            }
+                            @if (spm.star == 4)
+                            {
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            }
+                            @if (spm.star == 5)
+                            {
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            }
+                            <span>@spm.rateCount</span>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+    <hr />
+    <div class="khungSanPham" style="border-color: #ff9c00">
+        <h3 class="tenKhung" style="background-image: linear-gradient(120deg, #ff9c00 0%, #ec1f1f 50%, #ff9c00 100%);">TRẢ GÓP 0%</h3>
+        <div class="litSpTrongKhung flexContain">
+            @foreach (var tg in Model.TraGop0)
+            {
+                <div class="sanPham">
+                    <a href="@Url.Action("Detail", "Home",new { id=tg.productId })">
+                        <img src="@tg.image" />
+                        <h3>@tg.name</h3>
+                        <div class="price">
+                            <strong>@tg.price</strong>
+                        </div>
+                        <div class="rate">
+                            @if (tg.star == 0)
+                            {
+                                <i class="fa fa-star-half"></i>
+                            }
+                            @if (tg.star == 1)
+                            {
+                                <i class="fa fa-star"></i>
+                            }
+                            @if (tg.star == 2)
+                            {
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            }
+                            @if (tg.star == 3)
+                            {
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            }
+                            @if (tg.star == 4)
+                            {
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            }
+                            @if (tg.star == 5)
+                            {
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            }
+                            <span>@tg.rateCount</span>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+    <hr />
+    <div class="khungSanPham" style="border-color: #ff9c00">
+        <h3 class="tenKhung" style="background-image: linear-gradient(120deg, #ff9c00 0%, #ec1f1f 50%, #ff9c00 100%);">GIẢM GIÁ LỚN</h3>
+        <div class="litSpTrongKhung flexContain">
+            @foreach (var ggl in Model.GiamGiaLon)
+            {
+                <div class="sanPham">
+                    <a href="@Url.Action("Detail", "Home",new { id=ggl.productId })">
+                        <img src="@ggl.image" />
+                        <h3>@ggl.name</h3>
+                        <div class="price">
+                            <strong>@ggl.price</strong>
+                        </div>
+                        <div class="rate">
+                            @if (ggl.star == 0)
+                            {
+                                <i class="fa fa-star-half"></i>
+                            }
+                            @if (ggl.star == 1)
+                            {
+                                <i class="fa fa-star"></i>
+                            }
+                            @if (ggl.star == 2)
+                            {
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            }
+                            @if (ggl.star == 3)
+                            {
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            }
+                            @if (ggl.star == 4)
+                            {
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            }
+                            @if (ggl.star == 5)
+                            {
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            }
+                            <span>@ggl.rateCount</span>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+    <hr />
+    <div class="khungSanPham" style="border-color: #ff9c00">
+        <h3 class="tenKhung" style="background-image: linear-gradient(120deg, #ff9c00 0%, #ec1f1f 50%, #ff9c00 100%);">GIÁ SỐC ONLINE</h3>
+        <div class="litSpTrongKhung flexContain">
+            @foreach (var gso in Model.GiaSocOnline)
+            {
+                <div class="sanPham">
+                    <a href="@Url.Action("Detail", "Home",new { id=gso.productId })">
+                        <img src="@gso.image" />
+                        <h3>@gso.name</h3>
+                        <div class="price">
+                            <strong>@gso.price</strong>
+                        </div>
+                        <div class="rate">
+                            @if (gso.star == 0)
+                            {
+                                <i class="fa fa-star-half"></i>
+                            }
+                            @if (gso.star == 1)
+                            {
+                                <i class="fa fa-star"></i>
+                            }
+                            @if (gso.star == 2)
+                            {
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            }
+                            @if (gso.star == 3)
+                            {
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            }
+                            @if (gso.star == 4)
+                            {
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            }
+                            @if (gso.star == 5)
+                            {
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            }
+                            <span>@gso.rateCount</span>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
